@@ -14,6 +14,7 @@ end
 
 local cmp = require "cmp"
 
+
 cmp.setup {
   mapping = {
     ["<C-n>"] = cmp.mapping.scroll_docs(-4),
@@ -32,7 +33,7 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 5},
+    { name = "buffer", keyword_length = 5 },
   },
 
   snippet = {
@@ -57,7 +58,7 @@ cmp.setup {
 
   experimental = {
     native_menu = false,
-    ghost_text = true,
+    ghost_text = false,
   },
 }
 
