@@ -52,6 +52,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Screenshots
+bindsym Print exec --no-startup-id "scrot -e 'screenshot%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym --release Shift+Print exec "scrot -s 'screenshot%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym --release $mod+Shift+s exec "scrot -s -e 'xclip -selection clipboard -t image/png -i $f; mv $f ~/Pictures/Screenshots/'"
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -63,7 +68,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty /bin/zsh -c tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
