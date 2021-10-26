@@ -35,6 +35,9 @@ nnoremap <leader>hs :spilt<CR>
 nnoremap <C-l> <cmd>bn<CR>
 nnoremap <C-h> <cmd>bp<CR>
 nnoremap <S-q> <cmd>bd<CR>
+nnoremap <leader>ee :Ex<CR>
+nnoremap <leader>ev :Vex<CR>
+nnoremap <leader>et :Tex<CR>
 
 " Clipboard
 vnoremap <leader>p "_dP
