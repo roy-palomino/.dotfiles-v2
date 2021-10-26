@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+alias asdf="setxkbmap us real-prog-dvorak"
+
+alias vim="nvim"
+alias so="source ~/.zshrc"
+alias zsh="nvim ~/.zshrc"
+alias mart="cd /home/mart/"
+alias vuepractice="cd /home/mart/practice/vue"
+alias gopractice="cd /home/mart/practice/go"
+alias init.vim="cd ~/.config/nvim"
+alias rustpractice="cd /home/mart/practice/rust"
+alias tmux.conf="nvim ~/.tmux.conf"
+alias books="ranger ~/pCloudDrive/Books"
+alias kserv="tmux kill-server"
+alias ksess="tmux kill-session"
