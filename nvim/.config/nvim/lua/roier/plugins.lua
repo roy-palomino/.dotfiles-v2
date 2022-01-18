@@ -42,4 +42,6 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
+  use 'digitaltoad/vim-pug'
+
 end)
