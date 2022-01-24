@@ -61,5 +61,14 @@ set_keymap('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', opts)
 set_keymap('n', '<leader>sd', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 set_keymap('n', '<leader>[d', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 set_keymap('n', '<leader>]d', ':lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-set_keymap('n', 'F', ':lua vim.lsp.buf.formatting()<CR>', opts)
+set_keymap('n', 'F', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true })
 set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+
+-- Comment
+set_keymap('v', '++', ':CommentToggle<CR>', { noremap = false, silent = true })
+set_keymap('n', '++', ':CommentToggle<CR>', { noremap = false, silent = true })
+
+-- Sessionizer
+set_keymap('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
+
+set_keymap('n', '<leader>F', ':Prettier<CR>', { noremap = true, silent = false })
