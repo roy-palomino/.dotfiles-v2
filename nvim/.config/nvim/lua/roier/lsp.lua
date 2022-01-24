@@ -14,6 +14,12 @@ end
 
 local cmp = require "cmp"
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
 
 cmp.setup {
   mapping = {
@@ -86,13 +92,17 @@ require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.html.setup {
-  capabilities = capabilities,
-}
+--require'lspconfig'.html.setup {
+  --capabilities = capabilities,
+--}
 
 require'lspconfig'.pyright.setup{ on_attach=on_attach }
 
 require'lspconfig'.tsserver.setup{ on_attach=on_attach }
+
+--require'lspconfig'.volar.setup{
+  --filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+--}
 
 require'lspconfig'.vuels.setup{
   on_attach=on_attach,

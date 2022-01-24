@@ -9,7 +9,7 @@ fun! ColorMyPencils()
 
     set background=dark
     if has('nvim')
-        call luaeval('vim.cmd("colorscheme " .. _A[1])', ["ayu"])
+        call luaeval('vim.cmd("colorscheme " .. _A[1])', ["gruvbox"])
     else
         colorscheme ayu
     endif

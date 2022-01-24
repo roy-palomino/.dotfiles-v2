@@ -35,6 +35,7 @@ nnoremap <leader>hs :spilt<CR>
 nnoremap <C-l> <cmd>bn<CR>
 nnoremap <C-h> <cmd>bp<CR>
 nnoremap <S-q> <cmd>bd<CR>
+nnoremap <leader>ee :Ex<CR>
 
 " Clipboard
 vnoremap <leader>p "_dP
@@ -48,6 +49,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <leader>gs <cmd>Telescope git_status<CR>
 
 " Commenter
 vmap ++ <plug>NERDCommenterToggle
@@ -67,7 +69,7 @@ nnoremap F :lua vim.lsp.buf.formatting()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 " Prettier
-nnoremap <silent><leader>f :Prettier<CR>
+nnoremap <silent><leader>fm :Prettier<CR>
 
 " Vimrc
 nnoremap <silent><leader>mm :e ~/.config/nvim/plugin/maps.vim<CR>
