@@ -1,4 +1,4 @@
---[[vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local lspkind = require "lspkind"
 lspkind.init()
@@ -53,4 +53,3 @@ cmp.setup {
     ghost_text = true,
   },
 }
-]]

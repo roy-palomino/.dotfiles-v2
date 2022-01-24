@@ -4,7 +4,7 @@ local function on_attach()
   -- 
 end
 
-local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+--local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 

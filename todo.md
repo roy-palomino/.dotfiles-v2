@@ -3,4 +3,4 @@
 ### Dependencies to init.lua
 - fd
 - libstdc++5
-- nvim-pakcer-git- 
+- nvim-pakcer-git-
