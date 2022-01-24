@@ -63,7 +63,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty /bin/zsh -c tmux
+
+# start file explorer
+bindsym $mod+d exec pcmanfm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,9 +205,9 @@ mode "resize" {
 }
 
 # assign applications to specific workspace
-assign [class="(?i)(?:firefox)"] → 1
 assign [class="(?i)(?:kitty)"]   → 2
-assign [class="(?i)(?:firefox-developer-edition"]  → 4
+assign [class="(?i)(?:Insomnia)"]   → 8
+assign [class="(?i)(?:brave)"]   → 9
 
 bindsym $mod+r mode "resize"
 
@@ -220,4 +223,3 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id setxkbmap us real-prog-dvorak
 exec --no-startup-id pcloud
 #exec --no-startup-id redshift -l -13.15482:-74.20442
-exec picom &
