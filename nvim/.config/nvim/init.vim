@@ -41,6 +41,10 @@ Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 "Plug 'psf/black'
 
+"Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 " Helpers
 Plug 'preservim/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
