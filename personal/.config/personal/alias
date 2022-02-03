@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 alias asdf="setxkbmap us real-prog-dvorak"
+alias aoeu="setxkbmap latam"
 
 alias vim="nvim"
 alias so="source ~/.zshrc"
@@ -11,5 +12,6 @@ alias init.vim="cd ~/.config/nvim"
 alias rustpractice="cd /home/mart/practice/rust"
 alias tmux.conf="nvim ~/.tmux.conf"
 alias books="ranger ~/pCloudDrive/Books"
-alias kserv="tmux kill-server"
-alias ksess="tmux kill-session"
+alias kill="tmux kill-server"
+
+alias gs="git status"
