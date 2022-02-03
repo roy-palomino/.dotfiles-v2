@@ -12,7 +12,7 @@ set $mod Mod4
 
 
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -207,9 +207,9 @@ mode "resize" {
 }
 
 # assign applications to specific workspace
-assign [class="(?i)(?:firefox)"] → 1
 assign [class="(?i)(?:kitty)"]   → 2
-assign [class="(?i)(?:firefox-developer-edition"]  → 4
+assign [class="(?i)(?:insomnia"]  → 8
+assign [class="(?i)(?:brave"]  → 9
 
 bindsym $mod+r mode "resize"
 
