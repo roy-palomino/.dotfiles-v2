@@ -11,11 +11,11 @@ end
 -- End completation configuration
 
 -- make capabilities a function?
-require'lspconfig'.pylsp.setup{
-  capabilities = capabilities,
-  cmd = { "pylsp" },
-  filetypes = { "python" }
-}
+-- require'lspconfig'.pylsp.setup{
+--   capabilities = capabilities,
+--   cmd = { "pylsp" },
+--   filetypes = { "python" }
+-- }
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   cmd = { "gopls" }
@@ -72,6 +72,9 @@ require'nlua.lsp.nvim'.setup(require'lspconfig', {
     '-E',
     '/usr/lib/lua-language-server/main.lua'
   },
+  diagnostics = {
+    disable = {"lowercase-global"}
+  }
 })
 
 local opts = {

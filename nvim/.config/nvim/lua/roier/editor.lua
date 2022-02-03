@@ -13,9 +13,10 @@ require("indent_blankline").setup {
     show_current_context = true,
 }
 
--- Completation
-vim.g.completion_chain_complete_list = "['exact', 'substring', 'fuzzy']"
-vim.o.completeopt = 'menuone,noselect'
+-- Completion
+-- vim.g.completion_chain_complete_list = "['exact', 'substring', 'fuzzy']"
+-- vim.o.completeopt = 'menuone,noselect'
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)

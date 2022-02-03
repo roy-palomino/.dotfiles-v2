@@ -22,4 +22,3 @@ require('telescope').setup {
     find_files = ff_opts,
   }
 }
-
