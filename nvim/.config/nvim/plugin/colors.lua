@@ -1,3 +1,6 @@
+vim.opt.termguicolors = true
+require("colorizer").setup()
+
 require("nebulous").setup {
   variant = "fullmoon",
   disable = {

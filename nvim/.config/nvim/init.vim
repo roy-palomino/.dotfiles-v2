@@ -23,12 +23,11 @@ Plug 'simrat39/symbols-outline.nvim'
 
 " Color schemes
 Plug 'tjdevries/colorbuddy.nvim'
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'navarasu/onedark.nvim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'Yagua/nebulous.nvim'
+
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
