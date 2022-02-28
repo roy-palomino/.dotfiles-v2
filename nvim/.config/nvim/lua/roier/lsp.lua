@@ -4,6 +4,8 @@ local capabilities = cmp_nvim.update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local function on_attach()
     -- TODO: Implement Telescopic stuff
 end
@@ -26,6 +28,10 @@ require'lspconfig'.tsserver.setup{
 }
 require'lspconfig'.ccls.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
