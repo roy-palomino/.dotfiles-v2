@@ -20,11 +20,12 @@ local _ = require("nvim-treesitter.configs").setup {
     "vim",
     "lua",
     "css",
+    "scss",
     "html",
   },
   highlight = {
     enable = true,
-    use_languagetree = false,
+    use_languagetree = true,
     custom_captures = custom_captures,
   },
   refactor = {
