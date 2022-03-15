@@ -59,8 +59,13 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'rafamadriz/friendly-snippets'
+
 " File explorer
 " Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -68,5 +73,6 @@ lua require("roier")
 lua require("roier.editor")
 lua require("roier.lsp")
 lua require("roier.completion")
+lua require("roier.luasnip")
 
 let mapleader = " "
