@@ -1,5 +1,6 @@
 local set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local ls = require "luasnip"
 
 -- cmp.mapping.close(),
 -- set_keymap('i', '<C-c>', '<cmd>cmp.mapping.close()<CR>', opts)
@@ -70,3 +71,8 @@ set_keymap('n', '++', ':CommentToggle<CR>', { noremap = false, silent = true })
 set_keymap('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
 
 set_keymap('n', '<leader>F', ':Prettier<CR>', { noremap = true, silent = false })
+
+-- Luasnip
+
+vim.api.nvim_set_keymap('i', '<C-k>', "<cmd>lua require('luasnip').jump(1)<CR>", {})
+set_keymap('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/plugin/snippets.lua<CR>', { noremap = true })
