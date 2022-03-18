@@ -3,14 +3,19 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find /home/mart/Projects /home/mart/practice -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find /home/mart/Projects /home/mart/practice /home/mart/Personal -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+if [[ -f $selected/.tmux ]]; then
+  selected_name=`cat $selected/.tmux`
+else
+  selected_name=$(basename "$selected" | tr . _)
+fi
+
 tmux_runnig=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -s $selected_name -c $selected
