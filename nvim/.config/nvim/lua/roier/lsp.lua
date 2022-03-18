@@ -18,6 +18,7 @@ end
 --   cmd = { "pylsp" },
 --   filetypes = { "python" }
 -- }
+
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   cmd = { "gopls" }
@@ -35,33 +36,38 @@ require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.vuels.setup{
+require'lspconfig'.volar.setup{
   capabilities = capabilities,
-  on_attach = on_attach,
-  cmd = { "vls" },
-    filetypes = { "vue" },
-    init_options = {
-      config = {
-        vetur = {
-          completion = {
-            autoImport = false,
-            tagCasing = "kebab",
-            useScaffoldSnippets = false
-          },
-          format = {
-            scriptInitialIndent = false,
-            styleInitialIndent = false
-          },
-          useWorkspaceDependencies = false,
-          validation = {
-            script = true,
-            style = true,
-            template = true
-          }
-        }
-      }
-    }
+  on_attach = on_attach
 }
+
+-- require'lspconfig'.vuels.setup{
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   cmd = { "vls" },
+--     filetypes = { "vue" },
+--     init_options = {
+--       config = {
+--         vetur = {
+--           completion = {
+--             autoImport = false,
+--             tagCasing = "kebab",
+--             useScaffoldSnippets = false
+--           },
+--           format = {
+--             scriptInitialIndent = false,
+--             styleInitialIndent = false
+--           },
+--           useWorkspaceDependencies = false,
+--           validation = {
+--             script = true,
+--             style = true,
+--             template = true
+--           }
+--         }
+--       }
+--     }
+-- }
 
 -- Vim lsp
 require'lspconfig'.vimls.setup{
