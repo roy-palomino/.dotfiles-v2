@@ -1,6 +1,5 @@
 local set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local ls = require "luasnip"
 
 -- cmp.mapping.close(),
 -- set_keymap('i', '<C-c>', '<cmd>cmp.mapping.close()<CR>', opts)
@@ -14,8 +13,10 @@ set_keymap('n', '<leader>W', ':wa<CR> :edit<CR>', { noremap = true, silent = tru
 set_keymap('n', '<leader>ee', ':Ex<CR>', { noremap = true })
 set_keymap('n', '<leader>ev', ':Vex<CR>', { noremap = true })
 set_keymap('n', '<S-q>', ':bd<CR>', { noremap = true })
-set_keymap('n', '<C-l>', ':bn<CR>', { noremap = true })
-set_keymap('n', '<C-h>', ':bp<CR>', { noremap = true })
+set_keymap('n', '<leader>l', ':bn<CR>', { noremap = true })
+set_keymap('n', '<leader>h', ':bp<CR>', { noremap = true })
+set_keymap('n', '<leader>tl', ':tabnext<CR>', { noremap = true })
+set_keymap('n', '<leader>th', ':tabprevious<CR>', { noremap = true })
 
 -- Remaps
 set_keymap('n', 'Y', 'y$', { noremap = true })
@@ -48,6 +49,8 @@ set_keymap('n', '<C-p>', '<cmd>lua require(\'telescope.builtin\').git_files()<cr
 set_keymap('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>', opts)
 set_keymap('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', opts)
 set_keymap('n', '<leader>fm', '<cmd>lua require(\'telescope.builtin\').keymaps()<cr>', opts)
+
+set_keymap('n', '<C-g>', ':Git<cr>', opts)
 
 -- LSP
 set_keymap('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', opts)
