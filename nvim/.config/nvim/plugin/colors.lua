@@ -1,3 +1,7 @@
+-- setting up nvim-terminal.lua
+-- require'terminal'.setup()
+
+
 vim.opt.termguicolors = true
 require("colorizer").setup()
 
