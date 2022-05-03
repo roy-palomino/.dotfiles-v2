@@ -15,6 +15,14 @@ local function on_attach()
     -- TODO: Implement Telescopic stuff
 end
 
+local dart_init_options = {
+  closingLabels = true,
+  flutterOutline = true,
+  onlyAnalyzeProjectsWithOpenFiles = true,
+  outline = true,
+  suggestFromUnimportedLibraries = true
+}
+
 -- End completation configuration
 
 -- make capabilities a function?
@@ -41,38 +49,40 @@ require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.volar.setup{
+require'lspconfig'.dartls.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
-  on_attach = on_attach
 }
 
--- require'lspconfig'.vuels.setup{
---   capabilities = capabilities,
---   on_attach = on_attach,
---   cmd = { "vls" },
---     filetypes = { "vue" },
---     init_options = {
---       config = {
---         vetur = {
---           completion = {
---             autoImport = false,
---             tagCasing = "kebab",
---             useScaffoldSnippets = false
---           },
---           format = {
---             scriptInitialIndent = false,
---             styleInitialIndent = false
---           },
---           useWorkspaceDependencies = false,
---           validation = {
---             script = true,
---             style = true,
---             template = true
---           }
---         }
---       }
---     }
--- }
+-- require'lspconfig'.volar.setup{}
+
+require'lspconfig'.vuels.setup{
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { "vls" },
+    filetypes = { "vue" },
+    init_options = {
+      config = {
+        vetur = {
+          completion = {
+            autoImport = false,
+            tagCasing = "kebab",
+            useScaffoldSnippets = false
+          },
+          format = {
+            scriptInitialIndent = false,
+            styleInitialIndent = false
+          },
+          useWorkspaceDependencies = false,
+          validation = {
+            script = true,
+            style = true,
+            template = true
+          }
+        }
+      }
+    }
+}
 
 -- Vim lsp
 require'lspconfig'.vimls.setup{
@@ -88,7 +98,7 @@ require'nlua.lsp.nvim'.setup(require'lspconfig', {
   capabilities = capabilities,
   cmd = {
     '/usr/bin/lua-language-server',
-    -- '-E',
+    '-E',
     '/usr/lib/lua-language-server/main.lua'
   },
   diagnosticls = {
@@ -96,10 +106,27 @@ require'nlua.lsp.nvim'.setup(require'lspconfig', {
   },
   telemetry = {
     enable = false,
-  }
+  },
+  -- completion = {
+  --   "keywordSnippet": "Disable",
+  -- },
 })
 
--- require'lspconfig'.sumneko_lua.setup{}
+-- require'lspconfig'.sumneko_lua.setup{
+--   on_init = custom_init,
+--   capabilities = capabilities,
+--   cmd = {
+--     '/usr/bin/lua-language-server',
+--     '-E',
+--     '/usr/lib/lua-language-server/main.lua'
+--   },
+--   diagnosticls = {
+--     globals = {'vim'}
+--   },
+--   telemetry = {
+--     enable = false,
+--   },
+-- }
 
 local opts = {
     -- whether to highlight the currently hovered symbol
