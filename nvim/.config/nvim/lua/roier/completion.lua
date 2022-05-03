@@ -1,6 +1,6 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- new conf
+local luasnip = require'luasnip'
 local lspkind = require "lspkind"
 lspkind.init()
 
@@ -8,6 +8,7 @@ lspkind.init()
 local cmp = require'cmp'
 
 local source_mapping = {
+    luasnip = "[SNIP]",
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
@@ -15,7 +16,6 @@ local source_mapping = {
 	path = "[Path]",
 }
 
-local luasnip = require'luasnip'
 
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
@@ -27,7 +27,12 @@ tabnine:setup({
 })
 
 cmp.setup{
-  mapping = {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
@@ -36,21 +41,15 @@ cmp.setup{
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     })
-  },
-  sources = {
+  }),
+  sources = cmp.config.sources({
+    { name = 'luasnip' },
     { name = 'nvim_lua' },
-
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'luasnip' },
     { name = 'cmp_tabnine', keyword_length = 5 },
-    { name = "buffer" },
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
+    { name = "buffer", keyword_length = 5 },
+  }),
   formatting = {
     format = function(entry, vim_item)
         vim_item.kind = lspkind.presets.default[vim_item.kind]
