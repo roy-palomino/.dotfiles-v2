@@ -29,6 +29,8 @@ Plug 'Yagua/nebulous.nvim'
 
 Plug 'norcalli/nvim-colorizer.lua'
 
+" Plug 'norcalli/nvim-terminal.lua'
+
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -48,6 +50,13 @@ Plug 'nvim-treesitter/playground'
 
 " Lua plugins
 Plug 'tjdevries/nlua.nvim'
+Plug 'nvim-lua/completion-nvim'
+
+" Dart plugins
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+" Plug 'natebosch/vim-lsc'
+" Plug 'natebosch/vim-lsc-dart'
 
 " Helpers
 Plug 'terrortylor/nvim-comment'
