@@ -22,8 +22,12 @@ opt.scrolloff = 8
 opt.cursorline = true
 opt.guicursor = ""
 opt.signcolumn = "yes"
+vim.opt.colorcolumn = "95"
 
+vim.cmd('highlight ColorColumn guibg=DarkCyan')
+vim.cmd('set filetype=terminal')
 vim.cmd('set undodir=~/.vim/undodir')
 vim.cmd('set encoding=utf-8')
+vim.cmd('set bufhidden=wipe')
 --vim.cmd('set signcolumn=yes')
 
