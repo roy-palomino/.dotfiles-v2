@@ -1,3 +1,5 @@
+sudo dnf upgrade --refresh -y
+
 --- package manager - common
 i3
 i3lock
