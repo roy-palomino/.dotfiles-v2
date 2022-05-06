@@ -29,9 +29,20 @@ require'lspconfig'.ccls.setup{
   capabilities = capabilities,
 }
 
+require'lspconfig'.tailwindcss.setup{
+  on_attach = on_attach(),
+  capabilities = capabilities,
+  cmd = { "tailwindcss-language-server", "--stdio" },
+}
+
+-- require'lspconfig'.volar.setup{
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
+
 require'lspconfig'.vuels.setup{
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach=on_attach,
   cmd = { "vls" },
     filetypes = { "vue" },
     init_options = {

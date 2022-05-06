@@ -3,8 +3,9 @@ local opt = vim.opt
 opt.syntax = "on"
 opt.ignorecase = true
 opt.termguicolors = true
-opt.smarttab = true
 opt.cindent = true
+opt.smartindent = true
+opt.smarttab = true
 opt.expandtab = true
 opt.shiftwidth = 2
 
@@ -23,7 +24,10 @@ opt.cursorline = true
 opt.guicursor = ""
 opt.signcolumn = "yes"
 
+-- opt.colorcolumn = 96
+
 vim.cmd('set undodir=~/.vim/undodir')
 vim.cmd('set encoding=utf-8')
---vim.cmd('set signcolumn=yes')
+vim.cmd('set colorcolumn=90')
+vim.cmd('hi ColorColumn ctermbg=DarkCyan guibg=DarkCyan')
 

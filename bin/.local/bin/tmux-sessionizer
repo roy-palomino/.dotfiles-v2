@@ -7,10 +7,21 @@ else
 fi
 
 if [[ -z $selected ]]; then
-    exit 0
+  exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
+
+if [[ $selected_name = "cfocap-admin-web" ]]; then
+  selected_name="admin"
+elif [[ $selected_name = "quilla-web" ]]; then
+  selected_name="quilla"
+elif [[ $selected_name = "escuela-mujer-web" ]]; then
+  selected_name="EM"
+elif [[ $selected_name = "gal-web" ]]; then
+  selected_name="GAL"
+fi
+
 tmux_runnig=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -s $selected_name -c $selected

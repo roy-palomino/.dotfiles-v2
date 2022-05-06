@@ -1,0 +1,7 @@
+if [[ $selected_name = "cfocap-admin-web" ]]; then
+  selected_name="admin"
+elif [[ $selected_name = "escuela-mujer-web" ]]; then
+  selected_name="EM"
+elif [[ $selected_name = "quilla-web" ]]; then
+  selected_name="quilla"
+fi

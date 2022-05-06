@@ -16,6 +16,7 @@ local _ = require("nvim-treesitter.configs").setup {
     "typescript",
     "javascript",
     "vue",
+    "go",
     "c",
     "vim",
     "lua",

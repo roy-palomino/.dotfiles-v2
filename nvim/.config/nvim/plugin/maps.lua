@@ -6,15 +6,17 @@ local opts = { noremap = true, silent = true }
 
 -- Base maps
 set_keymap('n', '<leader><CR>', ':source ~/.config/nvim/init.lua<CR>', { noremap = true })
-set_keymap('n', '<leader>w', ':w<CR> :edit<CR>', { noremap = true, silent = true })
-set_keymap('n', '<leader>W', ':wa<CR> :edit<CR>', { noremap = true, silent = true })
+-- set_keymap('n', '<leader>w', ':w<CR> :edit<CR>', { noremap = true })
+-- set_keymap('n', '<leader>W', ':wa<CR> :edit<CR>', { noremap = true, silent = true })
 
 -- Navigation
 set_keymap('n', '<leader>ee', ':Ex<CR>', { noremap = true })
 set_keymap('n', '<leader>ev', ':Vex<CR>', { noremap = true })
 set_keymap('n', '<S-q>', ':bd<CR>', { noremap = true })
-set_keymap('n', '<C-l>', ':bn<CR>', { noremap = true })
-set_keymap('n', '<C-h>', ':bp<CR>', { noremap = true })
+set_keymap('n', '<leader>l', ':bn<CR>', { noremap = true })
+set_keymap('n', '<leader>h', ':bp<CR>', { noremap = true })
+set_keymap('n', '<leader>tl', ':tabnext<CR>', { noremap = true })
+set_keymap('n', '<leader>th', ':tabprevious<CR>', { noremap = true })
 
 -- Remaps
 set_keymap('n', 'Y', 'y$', { noremap = true })
@@ -50,6 +52,9 @@ set_keymap('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_file
 set_keymap('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', opts)
 set_keymap('n', '<leader>fm', '<cmd>lua require(\'telescope.builtin\').keymaps()<cr>', opts)
 
+-- Git
+set_keymap('n', '<C-g>', ':Git<CR>', opts)
+
 -- LSP
 set_keymap('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 set_keymap('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
@@ -72,3 +77,6 @@ set_keymap('n', '++', ':CommentToggle<CR>', { noremap = false, silent = true })
 set_keymap('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
 
 set_keymap('n', '<leader>F', ':Prettier<CR>', { noremap = true, silent = false })
+
+set_keymap('i', '<C-k>', "<cmd>lua require('luasnip').jump(1)<CR>", {})
+set_keymap('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/plugin/snippets.lua<CR>', { noremap = true })

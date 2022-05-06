@@ -47,6 +47,8 @@ Plug 'nvim-treesitter/playground'
 " Lua plugins
 Plug 'tjdevries/nlua.nvim'
 
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
 " Helpers
 Plug 'terrortylor/nvim-comment'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -57,8 +59,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" File explorer
-" Plug 'kyazdani42/nvim-tree.lua'
+Plug 'tpope/vim-fugitive'
+
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -66,5 +69,6 @@ lua require("roier")
 lua require("roier.editor")
 lua require("roier.lsp")
 lua require("roier.completion")
+lua require("roier.luasnip")
 
 let mapleader = " "

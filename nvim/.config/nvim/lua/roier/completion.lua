@@ -7,6 +7,18 @@ lspkind.init()
 -- Completation configuration
 local cmp = require'cmp'
 local luasnip = require'luasnip'
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+  max_lines = 1000;
+  max_num_results = 20;
+  sort = true;
+  run_on_every_keystroke = true;
+  snippet_placeholder = '|';
+  ignored_file_types = { -- default is not to ignore
+      -- uncomment to ignore in lua:
+  lua = true
+  }
+})
 
 cmp.setup{
   mapping = {
@@ -21,10 +33,10 @@ cmp.setup{
   },
   sources = {
     { name = 'nvim_lua' },
-
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'luasnip' },
+    { name = 'cmp_tabnine', keyword_length = 5 },
     { name = "buffer", keyword_length = 5},
   },
   snippet = {
@@ -41,6 +53,7 @@ cmp.setup{
         nvim_lua = "[api]",
         path = "[path]",
         luasnip = "[snip]",
+        cmp_tabnine = "[NINE]",
       },
     },
   },
