@@ -29,6 +29,8 @@ Plug 'Yagua/nebulous.nvim'
 
 Plug 'norcalli/nvim-colorizer.lua'
 
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+
 " Plug 'norcalli/nvim-terminal.lua'
 
 " Telescope

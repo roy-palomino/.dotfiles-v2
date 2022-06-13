@@ -32,14 +32,21 @@ local dart_init_options = {
 --   filetypes = { "python" }
 -- }
 
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+  filetypes = { "css", "scss", "less", "vue" }
+}
+
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   cmd = { "gopls" }
 }
+
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
   on_attach = on_attach
 }
+
 require'lspconfig'.ccls.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -47,6 +54,7 @@ require'lspconfig'.ccls.setup{
 
 require'lspconfig'.html.setup {
   capabilities = capabilities,
+  filetypes = {'html', 'javascriptreact', 'javascript.jsx', 'typescriptreact', 'typescript.tsx'}
 }
 
 require'lspconfig'.dartls.setup {
@@ -54,7 +62,16 @@ require'lspconfig'.dartls.setup {
   capabilities = capabilities,
 }
 
--- require'lspconfig'.volar.setup{}
+-- require'lspconfig'.volar.setup{
+--   init_options = {
+--     typescript = {
+--       serverpath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+--     }
+--   },
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+-- }
 
 require'lspconfig'.vuels.setup{
   capabilities = capabilities,
@@ -111,6 +128,8 @@ require'nlua.lsp.nvim'.setup(require'lspconfig', {
   --   "keywordSnippet": "Disable",
   -- },
 })
+
+require'lspconfig'.tailwindcss.setup{}
 
 -- require'lspconfig'.sumneko_lua.setup{
 --   on_init = custom_init,
