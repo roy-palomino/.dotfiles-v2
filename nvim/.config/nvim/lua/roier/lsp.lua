@@ -127,6 +127,9 @@ require'nlua.lsp.nvim'.setup(require'lspconfig', {
 --     enable = false,
 --   },
 -- }
+--
+
+require'lspconfig'.angularls.setup{}
 
 local opts = {
     -- whether to highlight the currently hovered symbol

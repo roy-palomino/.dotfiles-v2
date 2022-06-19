@@ -120,3 +120,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
