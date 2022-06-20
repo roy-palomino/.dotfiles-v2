@@ -222,5 +222,6 @@ bar {
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id setxkbmap us real-prog-dvorak
 exec --no-startup-id pcloud
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 #exec --no-startup-id redshift -l -13.15482:-74.20442
 # exec picom &
