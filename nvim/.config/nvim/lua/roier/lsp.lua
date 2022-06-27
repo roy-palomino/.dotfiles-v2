@@ -15,14 +15,6 @@ local function on_attach()
     -- TODO: Implement Telescopic stuff
 end
 
-local dart_init_options = {
-  closingLabels = true,
-  flutterOutline = true,
-  onlyAnalyzeProjectsWithOpenFiles = true,
-  outline = true,
-  suggestFromUnimportedLibraries = true
-}
-
 -- End completation configuration
 
 -- make capabilities a function?
