@@ -1,5 +1,25 @@
 return require('packer').startup(function(use)
 
+  -- LSP config
+  use 'onsails/lspkind.nvim'
+
+  use {
+    'williamboman/nvim-lsp-installer',
+    'neovim/nvim-lspconfig',
+  }
+
+  -- Nvim-cmp packages
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
+  -- Snippets packages
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
   use 'tjdevries/colorbuddy.nvim'
 
   use 'nvim-lua/plenary.nvim'
