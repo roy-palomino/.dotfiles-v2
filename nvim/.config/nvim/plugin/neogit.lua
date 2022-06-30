@@ -8,4 +8,8 @@ neogit.setup {
     item = { "▶", "▼" },
     hunk = { "", "" },
   },
+
+  commit_popup = {
+    kind = "split_above",
+  }
 }
