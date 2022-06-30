@@ -1,5 +1,7 @@
-local o = vim.o
+local o = vim.opt
 local bo = vim.bo
+
+o.completeopt = { "menu", "menuone", "noselect" }
 
 o.syntax = "on"
 o.ignorecase = true
