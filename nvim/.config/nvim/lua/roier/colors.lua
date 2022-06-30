@@ -1,16 +1,10 @@
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 
--- Use Color.new(<name>, <#rrggbb>) to create new colors
--- They can be accessed through colors.<name>
---Color.new('background',  '#282c34')
-Color.new('background',  '#ffffff')
-Color.new('red',         '#cc6666')
-Color.new('green',       '#99cc99')
-Color.new('yellow',      '#f0c674')
-
--- Define highlights in terms of `colors` and `groups`
-Group.new('Function'        , colors.yellow      , colors.background , styles.bold)
-Group.new('luaFunctionCall' , groups.Function    , groups.Function   , groups.Function)
-
+local hl = function(thing, opts)
+  vim.api.nvim_set_hl(0, thing, opts)
+end
 
 require('colorbuddy').colorscheme('catppuccin')
+
+hl("LineNr", { fg = "#5BBBDA", bg = "NONE" })
+hl("CursorLineNr", { fg = "#E1CD6C", bg = "NONE" })
