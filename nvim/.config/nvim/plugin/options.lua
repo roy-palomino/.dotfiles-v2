@@ -40,6 +40,9 @@ o.backup = false
 o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
+o.list = true
+o.listchars:append("eol:↲")
+
 vim.cmd('highlight ColorColumn guibg=DarkCyan')
 
 -- Set tabstop for different languages, currently just python
