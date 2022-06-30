@@ -1,4 +1,6 @@
-require("nvim_comment").setup {
+local nvim_comment = require("nvim_comment")
+
+nvim_comment.setup {
   context_commentstring = { enable = true },
   marker_padding = true,
   comment_empty = false,
