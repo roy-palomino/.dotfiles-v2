@@ -28,8 +28,10 @@ return require('packer').startup(function(use)
 
   use 'kyazdani42/nvim-web-devicons'
 
+  -- Comment packages
   use 'terrortylor/nvim-comment'
-
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  use 'lukas-reineke/indent-blankline.nvim'
 
 end)
