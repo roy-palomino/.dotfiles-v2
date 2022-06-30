@@ -4,9 +4,6 @@ local vmap = require("roier.keymap").vmap
 
 local silent = { noremap = true, silent = true}
 
--- Set leader key
-vim.g.mapleader = " "
-
 -- Navigation
 nmap { '<leader>ee', ':Ex<CR>', silent }
 nmap { '<leader>ev', ':Vex<CR>', silent }
