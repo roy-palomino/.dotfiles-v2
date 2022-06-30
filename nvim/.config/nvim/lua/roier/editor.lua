@@ -1,5 +1,6 @@
-local dev-icons = require'nvim-web-devicons'
+-- Icons setup
+local dev_icons = require'nvim-web-devicons'
 
-dev-icons.setup {
+dev_icons.setup {
   default = true
 }
