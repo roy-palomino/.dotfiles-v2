@@ -18,3 +18,27 @@ require("nvim-lsp-installer").setup {}
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities
 }
+
+require'lspconfig'.vimls.setup{
+  capabilities = capabilities,
+  cmd = { 'vim-language-server', '--stdio' }
+}
+
+require'nlua.lsp.nvim'.setup(require'lspconfig', {
+  on_init = custom_init,
+  capabilities = capabilities,
+  cmd = {
+    '/usr/bin/lua-language-server',
+    '-E',
+    '/usr/lib/lua-language-server/main.lua'
+  },
+  diagnosticls = {
+    globals = {'vim'}
+  },
+  telemetry = {
+    enable = false,
+  },
+  -- completion = {
+  --   "keywordSnippet": "Disable",
+  -- },
+})
