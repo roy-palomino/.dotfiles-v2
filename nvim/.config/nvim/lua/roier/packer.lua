@@ -5,7 +5,6 @@ return require('packer').startup(function(use)
 
   use {
     'williamboman/nvim-lsp-installer',
-    'neovim/nvim-lspconfig',
   }
 
   -- Nvim-cmp packages
@@ -45,6 +44,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'nvim-treesitter/playground'
 
   use 'kyazdani42/nvim-web-devicons'
 
@@ -53,5 +53,9 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   use 'lukas-reineke/indent-blankline.nvim'
+
+  -- Completion for lua
+  use 'tjdevries/nlua.nvim'
+  use 'nvim-lua/completion-nvim'
 
 end)
