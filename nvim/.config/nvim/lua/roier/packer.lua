@@ -58,4 +58,7 @@ return require('packer').startup(function(use)
   use 'tjdevries/nlua.nvim'
   use 'nvim-lua/completion-nvim'
 
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+
 end)
