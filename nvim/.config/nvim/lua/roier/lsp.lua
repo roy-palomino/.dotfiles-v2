@@ -17,13 +17,48 @@ end
 require("nvim-lsp-installer").setup {}
 
 -- Languages
-require'lspconfig'.tsserver.setup{
-  capabilities = capabilities
+
+lspconfig.tsserver.setup{
+  capabilities = capabilities,
+
 }
 
-require'lspconfig'.vimls.setup{
+-- lspconfig.vimls.setup{
+--   capabilities = capabilities,
+--   cmd = { 'vim-language-server', '--stdio' }
+-- }
+
+lspconfig.volar.setup {
   capabilities = capabilities,
-  cmd = { 'vim-language-server', '--stdio' }
+  init_options = {
+    typescript = {
+      serverPath = '~/.local/share/nvim/lsp_servers/tsserver'
+    }
+  },
+  filetypes = {
+    'typescript',
+    'javascript',
+    'javascriptreact',
+    'typescriptreact',
+    'vue',
+    'json',
+    'html'
+  }
+}
+
+lspconfig.tailwindcss.setup{}
+
+lspconfig.html.setup {
+  capabilities = capabilities,
+  filetypes = {
+    'typescript',
+    'javascript',
+    'javascriptreact',
+    'typescriptreact',
+    'vue',
+    'json',
+    'html'
+  }
 }
 
 require'nlua.lsp.nvim'.setup(require'lspconfig', {
