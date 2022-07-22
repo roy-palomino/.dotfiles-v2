@@ -2,6 +2,8 @@ local nmap = require("roier.keymap").nmap
 local imap = require("roier.keymap").imap
 local vmap = require("roier.keymap").vmap
 
+local ls = require("luasnip")
+
 local silent = { noremap = true, silent = true}
 
 -- Navigation
@@ -39,7 +41,7 @@ vmap { '<leader>y', '"+y', { noremap = true } }
 vmap { '<leader>p', '"_dP', { noremap = true } }
 nmap { '<leader>Y', 'gg"+yG', { noremap = true } }
 
--- Comment 
+-- Comment
 vmap { '++', ':CommentToggle<CR>', { noremap = false, silent = true } }
 nmap { '++', ':CommentToggle<CR>', { noremap = false, silent = true } }
 
@@ -67,16 +69,31 @@ nmap { 'K', ':lua vim.lsp.buf.hover()<CR>', silent }
 nmap { '<C-g>', '<cmd>lua require("neogit").open({ kind = "split_above" })<cr>', silent }
 
 
-
--- LSP
--- TODO: do when LSP is ready
-
-
 -- Sessionizer
 nmap { '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', silent}
 
 -- Format with prettier
-nmap { '<leader>F', ':Prettier<CR>', { noremap = true, silent = false } }
+nmap { '<leader>F', ':Neoformat<CR>', { noremap = true, silent = false } }
 
 -- Luasnip
--- TODO: Do it at final because we need to implement a better stuff
+-- nmap { '<C-k>', ':lua require ', silent}
+
+nmap { '<leader><leader>s', '<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>', silent }
+
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+imap {'<C-l>', function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, silent}
