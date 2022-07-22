@@ -1,0 +1,22 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sdc1
+UUID=82378241-e2fd-4a14-a42c-d58411c92744	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda2
+UUID=EA47-ACB8      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sdc2
+UUID=000fa226-a2d8-41b6-9d32-c855bd46f19d	/home     	ext4      	rw,relatime	0 2
+
+# /dev/sdb4
+UUID=5d7d8757-fe51-4d8b-94dd-964813a3c910	none      	swap      	defaults  	0 0
+
+# /home/mart
+UUID=1cabda87-c0e7-4c7d-ab30-be638dab0659 /home/mart     ext4    defaults,noatime 0 2
+
+# Binding default folders to HDD
+/home/mart/Downloads			  /home/roier/Downloads none defaults,bind 0 0
+/home/mart/Videos			  /home/roier/Videos	none defaults,bind 0 0

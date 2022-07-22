@@ -22,6 +22,8 @@ local _ = require("nvim-treesitter.configs").setup {
     "css",
     "scss",
     "html",
+    "tsx",
+    "pug",
   },
   highlight = {
     enable = true,
