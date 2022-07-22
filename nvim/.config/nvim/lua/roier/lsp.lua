@@ -1,5 +1,7 @@
 local cmp_nvim = require'cmp_nvim_lsp'
 
+local lspconfig = require('lspconfig')
+
 local capabilities = cmp_nvim.update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
