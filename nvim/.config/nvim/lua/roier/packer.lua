@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   -- Snippets packages
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
   use 'tjdevries/colorbuddy.nvim'
 
@@ -54,11 +55,15 @@ return require('packer').startup(function(use)
 
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Formatting
+  use 'sbdchd/neoformat'
+
   -- Completion for lua
   use 'tjdevries/nlua.nvim'
   use 'nvim-lua/completion-nvim'
 
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
+
 
 end)
