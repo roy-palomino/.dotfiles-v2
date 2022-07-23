@@ -7,7 +7,10 @@ local types = require'luasnip.util.types'
 
 local s = ls.s
 local i = ls.i
+local c = ls.c
+local d = ls.d
 local t = ls.t
+local sn = ls.sn
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
@@ -47,7 +50,19 @@ ls.add_snippets("lua", {
 )
 
 ls.add_snippets("typescriptreact", {
-    -- s("h1", fmt("<h1>{}<h1>", { i(1, "default"), rep(1) })),
+     s(
+      { trig = "<([%w_]+)", regTrig = true, hidden = true},
+      fmt([[
+        <{}>{}</{}>{}
+      ]], {
+        d(1, function(_, ex)
+          return sn(1, i(1, ex.captures[1]))
+        end),
+        i(2, ""),
+        rep(1),
+        i(0, "")
+      })
+     ),
     s(
 			"h1",
 			fmt("<h1>{}</h1>{}", {i(1, ""), i(0, "")})
