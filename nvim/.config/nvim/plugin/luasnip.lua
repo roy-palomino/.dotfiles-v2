@@ -49,190 +49,217 @@ ls.add_snippets("lua", {
   }
 )
 
+ls.add_snippets("typescript", {
+  s(
+    "import",
+    fmt("import {{ {} }} from \"{}\";{}", {
+      i(2, ""),
+      i(1, ""),
+      i(0, ""),
+    })
+  ),
+})
+
 ls.add_snippets("typescriptreact", {
-     s(
-      { trig = "<([%w_]+)", regTrig = true, hidden = true},
-      fmt([[
-        <{}>{}</{}>{}
-      ]], {
-        d(1, function(_, ex)
-          return sn(1, i(1, ex.captures[1]))
-        end),
-        i(2, ""),
-        rep(1),
-        i(0, "")
-      })
-     ),
-    s(
-			"h1",
-			fmt("<h1>{}</h1>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"h2",
-			fmt("<h2>{}</h2>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"h3",
-			fmt("<h3>{}</h3>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"h4",
-			fmt("<h4>{}</h4>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"h5",
-			fmt("<h5>{}</h5>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"h6",
-			fmt("<h6>{}</h6>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"p",
-			fmt("<p>{}</p>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"body",
-			fmt("<body>{}</body>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"head",
-			fmt("<head>{}</head>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"html",
-			fmt("<html>{}</html>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"title",
-			fmt("<title>{}</title>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"meta",
-			fmt("<meta>{}</meta>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"em",
-			fmt("<em>{}</em>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"b",
-			fmt("<b>{}</b>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"i",
-			fmt("<i>{}</i>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"u",
-			fmt("<u>{}</u>{}", {i(1, ""), i(0, "")})
-		),
-    s(
-			"a",
-			fmt("<a href=\"{}\">{}</a>{}", {i(1, ""), i(2, ""), i(0, "")})
-		),
-    s(
-      "br",
-      fmt("<br>{}</br>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "hr",
-      fmt("<hr>{}</hr>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "ul",
-      fmt("<ul>{}</ul>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "li",
-      fmt("<li>{}</li>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "ol",
-      fmt("<ol>{}</ol>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "img",
-      fmt("<img src=\"{}\">{}</img>{}", {i(1, ""), i(2, ""), i(0, "")})
-    ),
-    s(
-      "link",
-      fmt("<link rel=\"{}\" type=\"{}\" href=\"{}\">{}</link>{}", {
-        i(1, "stylesheet"),
-        i(2, "text/css"),
-        i(3, "style.css"),
-        i(4, ""),
-        i(0, "")
-      })
-    ),
-    s(
-      "table",
-      fmt("<table>{}</table>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "tbody",
-      fmt("<tbody>{}</tbody>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "tr",
-      fmt("<tr>{}</tr>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "td",
-      fmt("<td>{}</td>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "thead",
-      fmt("<thead>{}</thead>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "th",
-      fmt("<th>{}</th>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "form",
-      fmt("<form>{}</form>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "input",
-      fmt("<input>{}</input>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "textarea",
-      fmt("<textarea>{}</textarea>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "center",
-      fmt("<center>{}</center>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "option",
-      fmt("<option>{}</option>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "button",
-      fmt("<button>{}</button>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "div",
-      fmt("<div>{}</div>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "header",
-      fmt("<header>{}</header>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "nav",
-      fmt("<nav>{}</nav>{}", {i(1, ""), i(0, "")})
-    ),
-    s(
-      "script",
-      fmt("<script src=\"{}\" type=\"{}\">{}</script>{}", {
-        i(1, "/file.js"),
-        i(2, "text/javascript"),
-        i(3, ""),
-        i(0, "")
-      })
-    ),
-  }
+  s(
+    "import",
+    fmt("import {{ {} }} from \"{}\";{}", {
+      i(2, ""),
+      i(1, ""),
+      i(0, ""),
+    })
+  ),
+  -- const Home = lazy(() => import("../pages/home"));
+  s(
+    "lazy",
+    fmt("const {} = lazy(() => import(\"{}\"));{}", {
+      i(2, ""),
+      i(1, ""),
+      i(0, ""),
+    })
+  ),
+  s(
+   { trig = "<([%w_]+)", regTrig = true, hidden = true},
+   fmt([[
+     <{}>{}</{}>{}
+   ]], {
+     d(1, function(_, ex)
+       return sn(1, i(1, ex.captures[1]))
+     end),
+     i(2, ""),
+     rep(1),
+     i(0, "")
+   })
+  ),
+  s(
+		"h1",
+		fmt("<h1>{}</h1>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"h2",
+		fmt("<h2>{}</h2>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"h3",
+		fmt("<h3>{}</h3>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"h4",
+		fmt("<h4>{}</h4>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"h5",
+		fmt("<h5>{}</h5>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"h6",
+		fmt("<h6>{}</h6>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"p",
+		fmt("<p>{}</p>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"body",
+		fmt("<body>{}</body>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"head",
+		fmt("<head>{}</head>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"html",
+		fmt("<html>{}</html>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"title",
+		fmt("<title>{}</title>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"meta",
+		fmt("<meta>{}</meta>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"em",
+		fmt("<em>{}</em>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"b",
+		fmt("<b>{}</b>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"i",
+		fmt("<i>{}</i>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"u",
+		fmt("<u>{}</u>{}", {i(1, ""), i(0, "")})
+	),
+  s(
+		"a",
+		fmt("<a href=\"{}\">{}</a>{}", {i(1, ""), i(2, ""), i(0, "")})
+	),
+  s(
+    "br",
+    fmt("<br>{}</br>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "hr",
+    fmt("<hr>{}</hr>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "ul",
+    fmt("<ul>{}</ul>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "li",
+    fmt("<li>{}</li>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "ol",
+    fmt("<ol>{}</ol>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "img",
+    fmt("<img src=\"{}\">{}</img>{}", {i(1, ""), i(2, ""), i(0, "")})
+  ),
+  s(
+    "link",
+    fmt("<link rel=\"{}\" type=\"{}\" href=\"{}\">{}</link>{}", {
+      i(1, "stylesheet"),
+      i(2, "text/css"),
+      i(3, "style.css"),
+      i(4, ""),
+      i(0, "")
+    })
+  ),
+  s(
+    "table",
+    fmt("<table>{}</table>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "tbody",
+    fmt("<tbody>{}</tbody>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "tr",
+    fmt("<tr>{}</tr>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "td",
+    fmt("<td>{}</td>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "thead",
+    fmt("<thead>{}</thead>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "th",
+    fmt("<th>{}</th>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "form",
+    fmt("<form>{}</form>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "input",
+    fmt("<input>{}</input>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "textarea",
+    fmt("<textarea>{}</textarea>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "center",
+    fmt("<center>{}</center>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "option",
+    fmt("<option>{}</option>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "button",
+    fmt("<button>{}</button>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "div",
+    fmt("<div>{}</div>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "header",
+    fmt("<header>{}</header>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "nav",
+    fmt("<nav>{}</nav>{}", {i(1, ""), i(0, "")})
+  ),
+  s(
+    "script",
+    fmt("<script src=\"{}\" type=\"{}\">{}</script>{}", {
+      i(1, "/file.js"),
+      i(2, "text/javascript"),
+      i(3, ""),
+      i(0, "")
+    })
+  )}
 )
