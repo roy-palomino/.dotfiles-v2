@@ -23,10 +23,18 @@ lspconfig.tsserver.setup{
 
 }
 
--- lspconfig.vimls.setup{
---   capabilities = capabilities,
---   cmd = { 'vim-language-server', '--stdio' }
--- }
+lspconfig.vimls.setup{
+  capabilities = capabilities,
+  cmd = { 'vim-language-server', '--stdio' }
+}
+
+lspconfig.dartls.setup{
+  capabilities = capabilities,
+  filetypes = {
+    "dart",
+    "flutter",
+  }
+}
 
 lspconfig.volar.setup {
   capabilities = capabilities,
