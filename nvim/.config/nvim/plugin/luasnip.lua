@@ -42,6 +42,56 @@ ls.add_snippets("typescript", {
       fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")}))
 })
 
+ls.add_snippets("dart", {
+  s("import",
+    fmt([[
+      import 'package:{}';
+      {}
+    ]], {
+      i(1, ""),
+      i(0, ""),
+    })),
+  s("stful",
+    fmt([[
+      class {} extends StatefulWidget {{
+        const {}({{Key? key}}) : super(key: key);
+
+        @override
+        State<{}> createState() => _{}State();
+      }}
+
+      class _{}State extends State<{}> {{
+        @override
+        Widget build(BuildContext context) {{
+          return Container({});
+        }}
+      }}
+    ]], {
+      i(1, "WidgetName"),
+      rep(1),
+      rep(1),
+      rep(1),
+      rep(1),
+      rep(1),
+      i(0, ""),
+    })),
+  s("stless",
+    fmt([[
+      class {} extends StatelessWidget {{
+        const {}({{Key? key}}) : super(key: key);
+
+        @override
+        Widget build(BuildContext context) {{
+          return Container({});
+        }}
+      }}
+    ]], {
+      i(1, "WidgetName"),
+      rep(1),
+      i(0, ""),
+    }))
+})
+
 ls.add_snippets("typescriptreact", {
     s("import",
       fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")})),
