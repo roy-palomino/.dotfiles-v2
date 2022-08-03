@@ -55,6 +55,10 @@ return require('packer').startup(function(use)
 
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Dart & Flutter support
+  use 'dart-lang/dart-vim-plugin'
+  use 'thosakwe/vim-flutter'
+
   -- Formatting
   use 'sbdchd/neoformat'
 
