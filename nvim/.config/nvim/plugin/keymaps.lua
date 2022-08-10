@@ -62,7 +62,7 @@ nmap { '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', silent }
 nmap { '<leader>sd', '<cmd>lua vim.diagnostic.open_float()<CR>', silent }
 nmap { '<leader>[d', ':lua vim.lsp.diagnostic.goto_prev()<CR>', silent }
 nmap { '<leader>]d', ':lua vim.lsp.diagnostic.goto_next()<CR>', silent }
-nmap { 'F', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true } }
+-- nmap { 'F', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true } }
 nmap { 'K', ':lua vim.lsp.buf.hover()<CR>', silent }
 
 -- Neogit mapping
@@ -73,7 +73,7 @@ nmap { '<C-g>', '<cmd>lua require("neogit").open({ kind = "split_above" })<cr>',
 nmap { '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', silent}
 
 -- Format with prettier
-nmap { '<leader>F', ':Neoformat<CR>', { noremap = true, silent = false } }
+nmap { 'F', ':Neoformat<CR>', { noremap = true, silent = false } }
 
 -- Luasnip
 -- nmap { '<C-k>', ':lua require ', silent}
@@ -97,3 +97,23 @@ imap {'<C-l>', function()
     ls.change_choice(1)
   end
 end, silent}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "netrw" },
+  callback = function()
+    vim.schedule(function()
+      nmap { '<leader>fr', '<cmd>FlutterRun<CR>', silent }
+      nmap { '<leader>fq', '<cmd>FlutterQuit<CR>', silent }
+    end)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "dart" },
+  callback = function()
+    vim.schedule(function()
+      nmap { '<leader>frs', '<cmd>FlutterHotRestart<CR>', silent }
+      nmap { '<leader>frl', '<cmd>FlutterHotReload<CR>', silent }
+    end)
+  end,
+})
