@@ -45,8 +45,7 @@ ls.add_snippets("typescript", {
 ls.add_snippets("dart", {
   s("import",
     fmt([[
-      import 'package:{}';
-      {}
+      import 'package:{}';{}
     ]], {
       i(1, ""),
       i(0, ""),
