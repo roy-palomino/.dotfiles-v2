@@ -7,8 +7,7 @@ local ls = require("luasnip")
 local silent = { noremap = true, silent = true}
 
 -- Navigation
-nmap { '<leader>ee', ':Ex<CR>', silent }
-nmap { '<leader>ev', ':Vex<CR>', silent }
+nmap { '<leader>ee', ':Telescope file_browser<CR><Esc>', silent }
 nmap { '<S-q>', ':bd<CR>', silent }
 nmap { '<leader>l', ':bn<CR>', silent }
 nmap { '<leader>h', ':bp<CR>', silent }
