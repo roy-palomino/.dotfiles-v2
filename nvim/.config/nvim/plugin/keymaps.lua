@@ -20,6 +20,8 @@ nmap { 'Y', 'y$', { noremap = true } }
 nmap { 'n', 'nzzzv', { noremap = true } }
 nmap { 'N', 'Nzzzv', { noremap = true } }
 nmap { 'J', 'mzJ`z', { noremap = true } }
+imap { '<C-p>', '<Up>', { noremap = true } }
+imap { '<C-n>', '<Down>', { noremap = true } }
 
 -- Moving text
 nmap { '<leader>j', ':m .+1<CR>==', { noremap = true } }
