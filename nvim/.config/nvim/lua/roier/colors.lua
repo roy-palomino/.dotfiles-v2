@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
 local hl = function(thing, opts)
   vim.api.nvim_set_hl(0, thing, opts)
