@@ -28,13 +28,13 @@ lspconfig.vimls.setup{
   cmd = { 'vim-language-server', '--stdio' }
 }
 
-lspconfig.dartls.setup{
-  capabilities = capabilities,
-  filetypes = {
-    "dart",
-    "flutter",
-  }
-}
+-- lspconfig.dartls.setup{
+--   capabilities = capabilities,
+--   filetypes = {
+--     "dart",
+--     "flutter",
+--   }
+-- }
 
 lspconfig.ccls.setup {
   capabilities = capabilities,
