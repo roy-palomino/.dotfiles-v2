@@ -13,6 +13,8 @@ nmap { '<leader>l', ':bn<CR>', silent }
 nmap { '<leader>h', ':bp<CR>', silent }
 nmap { '<leader>tl', ':tabnext<CR>', silent }
 nmap { '<leader>th', ':tabprevious<CR>', silent }
+nmap { '<leader>tmh', ':-tabmove<CR>', silent }
+nmap { '<leader>tml', ':+tabmove<CR>', silent }
 
 -- Remaps
 nmap { 'Y', 'y$', { noremap = true } }
@@ -99,12 +101,15 @@ imap {'<C-l>', function()
   end
 end, silent}
 
+-- Flutter stuff
+
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "netrw" },
+  pattern = { "netrw", "log" },
   callback = function()
     vim.schedule(function()
       nmap { '<leader>fr', '<cmd>FlutterRun<CR>', silent }
       nmap { '<leader>fq', '<cmd>FlutterQuit<CR>', silent }
+      nmap { '<C-l>', '<cmd>FlutterLogClear<CR>', silent }
     end)
   end,
 })
