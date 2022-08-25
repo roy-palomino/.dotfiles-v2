@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/roier/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
     url = "https://github.com/dart-lang/dart-vim-plugin"
   },
+  ["flutter-tools.nvim"] = {
+    loaded = true,
+    path = "/home/roier/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    url = "https://github.com/akinsho/flutter-tools.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/roier/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -213,11 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/roier/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
-  },
-  ["vim-flutter"] = {
-    loaded = true,
-    path = "/home/roier/.local/share/nvim/site/pack/packer/start/vim-flutter",
-    url = "https://github.com/thosakwe/vim-flutter"
   }
 }
 
