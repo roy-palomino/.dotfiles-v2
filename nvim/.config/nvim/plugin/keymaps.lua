@@ -113,8 +113,11 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "dart" },
   callback = function()
     vim.schedule(function()
-      nmap { '<leader>frs', '<cmd>FlutterHotRestart<CR>', silent }
-      nmap { '<leader>frl', '<cmd>FlutterHotReload<CR>', silent }
+      nmap { '<leader>fr', '<cmd>FlutterRun<CR>', silent }
+      nmap { '<leader>fo', '<cmd>FlutterOutlineToggle<CR>', silent }
+      nmap { '<leader>frs', '<cmd>FlutterRestart<CR>', silent }
+      nmap { '<leader>frl', '<cmd>FlutterReload<CR>', silent }
+      nmap { '<leader>fvd', '<cmd>FlutterVisualDebug<CR>', silent }
     end)
   end,
 })
