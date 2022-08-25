@@ -62,7 +62,7 @@ ls.add_snippets("dart", {
       class _{}State extends State<{}> {{
         @override
         Widget build(BuildContext context) {{
-          return Container({});
+          return {}({});
         }}
       }}
     ]], {
@@ -72,6 +72,7 @@ ls.add_snippets("dart", {
       rep(1),
       rep(1),
       rep(1),
+      i(2, "Scaffold"),
       i(0, ""),
     })),
   s("stless",
@@ -81,12 +82,13 @@ ls.add_snippets("dart", {
 
         @override
         Widget build(BuildContext context) {{
-          return Container({});
+          return {}({});
         }}
       }}
     ]], {
       i(1, "WidgetName"),
       rep(1),
+      i(2, "Container"),
       i(0, ""),
     }))
 })
