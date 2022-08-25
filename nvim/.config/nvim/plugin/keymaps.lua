@@ -78,8 +78,10 @@ nmap { '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', silent}
 -- Format with prettier
 nmap { 'F', ':Neoformat<CR>', { noremap = true, silent = false } }
 
--- Luasnip
--- nmap { '<C-k>', ':lua require ', silent}
+-- Packer maps
+nmap { '<leader><leader>ps', ':PackerSync<CR>', silent }
+nmap { '<leader><leader>pc', ':PackerClean<CR>', { noremap = true, silent = false } }
+nmap { '<leader><leader>pu', ':PackerUpdate<CR>', silent }
 
 nmap { '<leader><leader>s', '<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>', silent }
 
