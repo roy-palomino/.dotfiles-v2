@@ -7,14 +7,14 @@ local ls = require("luasnip")
 local silent = { noremap = true, silent = true}
 
 -- Navigation
-nmap { '<leader>ee', ':Telescope file_browser<CR><Esc>', silent }
+nmap { '<leader>e', ':NvimTreeToggle<CR>', silent }
 nmap { '<S-q>', ':bd<CR>', silent }
 nmap { '<leader>l', ':bn<CR>', silent }
 nmap { '<leader>h', ':bp<CR>', silent }
 nmap { '<leader>tl', ':tabnext<CR>', silent }
 nmap { '<leader>th', ':tabprevious<CR>', silent }
-nmap { '<leader>tmh', ':-tabmove<CR>', silent }
-nmap { '<leader>tml', ':+tabmove<CR>', silent }
+nmap { '<leader>tml', ':BufferMoveNext<CR>', silent }
+nmap { '<leader>tmh', ':BufferMovePrevious<CR>', silent }
 
 -- Remaps
 nmap { 'Y', 'y$', { noremap = true } }
