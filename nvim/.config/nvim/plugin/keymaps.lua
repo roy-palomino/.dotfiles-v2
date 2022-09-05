@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "netrw", "log" },
   callback = function()
     vim.schedule(function()
-      nmap { '<leader>fr', '<cmd>FlutterRun<CR>', silent }
+      nmap { '<leader>fR', '<cmd>FlutterRun<CR>', silent }
       nmap { '<leader>fq', '<cmd>FlutterQuit<CR>', silent }
       nmap { '<C-l>', '<cmd>FlutterLogClear<CR>', silent }
     end)
@@ -120,11 +120,13 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "dart" },
   callback = function()
     vim.schedule(function()
-      nmap { '<leader>fr', '<cmd>FlutterRun<CR>', silent }
+      nmap { '<leader>fR', '<cmd>FlutterRun<CR>', silent }
+      nmap { '<leader>fQ', '<cmd>FlutterQuit<CR>', silent }
       nmap { '<leader>fo', '<cmd>FlutterOutlineToggle<CR>', silent }
       nmap { '<leader>frs', '<cmd>FlutterRestart<CR>', silent }
       nmap { '<leader>frl', '<cmd>FlutterReload<CR>', silent }
       nmap { '<leader>fvd', '<cmd>FlutterVisualDebug<CR>', silent }
+      nmap { '<leader>fe', '<cmd>FlutterEmulators<CR>', silent }
     end)
   end,
 })
