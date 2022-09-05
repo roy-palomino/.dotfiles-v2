@@ -1,4 +1,5 @@
 require("flutter-tools").setup {
+  -- flutter_path = "/var/lib/snapd/snap/bin/flutter",
   ui = {
     -- the border type to use for all floating windows, the same options/formats
     -- used for ":h nvim_open_win" e.g. "single" | "shadow" | {<table-of-eight-chars>}
@@ -18,6 +19,13 @@ require("flutter-tools").setup {
       -- device
       device = true,
     }
+  },
+  debugger = { -- integrate with nvim dap + install dart code debugger
+    enabled = false,
+    run_via_dap = false, -- use dap instead of a plenary job to run flutter apps
+  },
+  closing_tags = {
+    enabled = false -- set to false to disable
   },
   dev_log = {
     enabled = true,
