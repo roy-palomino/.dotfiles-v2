@@ -9,12 +9,12 @@ local silent = { noremap = true, silent = true}
 -- Navigation
 nmap { '<leader>e', ':NvimTreeToggle<CR>', silent }
 nmap { '<S-q>', ':bd<CR>', silent }
-nmap { '<leader>l', ':bn<CR>', silent }
-nmap { '<leader>h', ':bp<CR>', silent }
-nmap { '<leader>tl', ':tabnext<CR>', silent }
-nmap { '<leader>th', ':tabprevious<CR>', silent }
-nmap { '<leader>tml', ':BufferMoveNext<CR>', silent }
+nmap { '<leader>h', ':BufferPrevious<CR>', silent }
+nmap { '<leader>l', ':BufferNext<CR>', silent }
+nmap { '<leader>th', ':BufferPrevious<CR>', silent }
+nmap { '<leader>tl', ':BufferNext<CR>', silent }
 nmap { '<leader>tmh', ':BufferMovePrevious<CR>', silent }
+nmap { '<leader>tml', ':BufferMoveNext<CR>', silent }
 
 -- Remaps
 nmap { 'Y', 'y$', { noremap = true } }
