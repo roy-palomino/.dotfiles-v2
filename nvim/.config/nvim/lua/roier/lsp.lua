@@ -38,6 +38,7 @@ lspconfig.vimls.setup{
 
 lspconfig.ccls.setup {
   capabilities = capabilities,
+  filatypes = { "c", "cpp", "objc", "objcpp" },
   init_options = {
     compilationDatabaseDirectory = "build";
     index = {
