@@ -28,7 +28,7 @@ require("flutter-tools").setup {
     enabled = false -- set to false to disable
   },
   dev_log = {
-    enabled = true,
+    enabled = false,
     open_cmd = "tabedit", -- command to use to open the log buffer
   },
   lsp = {
