@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
 
     -- Dart & Flutter support
     -- use 'thosakwe/vim-flutter'
-    use 'dart-lang/dart-vim-plugin'
+    -- use 'dart-lang/dart-vim-plugin'
     use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 
     -- Formatting
