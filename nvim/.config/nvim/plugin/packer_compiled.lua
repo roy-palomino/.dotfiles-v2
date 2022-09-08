@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/roier/.local/share/nvim/site/pack/packer/start/completion-nvim",
     url = "https://github.com/nvim-lua/completion-nvim"
   },
-  ["dart-vim-plugin"] = {
-    loaded = true,
-    path = "/home/roier/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
-    url = "https://github.com/dart-lang/dart-vim-plugin"
-  },
   ["flutter-tools.nvim"] = {
     loaded = true,
     path = "/home/roier/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
