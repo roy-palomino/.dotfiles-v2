@@ -11,12 +11,12 @@ o.smarttab = true
 o.autoindent = true
 o.cindent = true
 o.expandtab = true
-o.shiftwidth = 2
+o.shiftwidth = 4
 o.breakindent = true
 -- o.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 o.linebreak = true
-o.tabstop = 2
-o.softtabstop = 2
+o.tabstop = 4
+o.softtabstop = 4
 o.expandtab = true
 o.wrap = true
 o.cursorline = true
@@ -55,6 +55,17 @@ vim.api.nvim_create_autocmd("FileType", {
       bo.shiftwidth = 8
       bo.tabstop = 8
       bo.softtabstop = 8
+    end)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "dart" },
+  callback = function()
+    vim.schedule(function()
+      bo.shiftwidth = 2
+      bo.tabstop = 2
+      bo.softtabstop = 2
     end)
   end,
 })
