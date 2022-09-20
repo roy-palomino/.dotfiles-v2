@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "dart" },
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact", "dart", "css" },
   callback = function()
     vim.schedule(function()
       bo.shiftwidth = 2
