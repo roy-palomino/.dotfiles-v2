@@ -6,10 +6,10 @@ local types = require 'luasnip.util.types'
 local s = ls.s
 local i = ls.i
 local c = ls.c
-local d = ls.d
-local t = ls.t
+-- local d = ls.d
+-- local t = ls.t
 local f = ls.f
-local sn = ls.sn
+-- local sn = ls.sn
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
