@@ -43,15 +43,9 @@ ls.add_snippets("typescript", {
 })
 
 ls.add_snippets("dart", {
-  s("import",
-    fmt([[
+    s("import", fmt([[
       import 'package:{}';{}
-    ]], {
-      i(1, ""),
-      i(0, ""),
-    })),
-  s("stful",
-    fmt([[
+    ]], {i(1, ""), i(0, "")})), s("stful", fmt([[
       class {} extends StatefulWidget {{
         const {}({{Key? key}}) : super(key: key);
 
@@ -66,17 +60,9 @@ ls.add_snippets("dart", {
         }}
       }}
     ]], {
-      i(1, "WidgetName"),
-      rep(1),
-      rep(1),
-      rep(1),
-      rep(1),
-      rep(1),
-      i(2, "Scaffold"),
-      i(0, ""),
-    })),
-  s("stless",
-    fmt([[
+        i(1, "WidgetName"), rep(1), rep(1), rep(1), rep(1), rep(1),
+        i(2, "Scaffold"), i(0, "")
+    })), s("stless", fmt([[
       class {} extends StatelessWidget {{
         const {}({{Key? key}}) : super(key: key);
 
@@ -85,44 +71,30 @@ ls.add_snippets("dart", {
           return {}({});
         }}
       }}
-    ]], {
-      i(1, "WidgetName"),
-      rep(1),
-      i(2, "Container"),
-      i(0, ""),
-    }))
+    ]], {i(1, "WidgetName"), rep(1), i(2, "Container"), i(0, "")}))
 })
 
 ls.add_snippets("typescriptreact", {
     s("import",
       fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")})),
-    -- const Home = lazy(() => import("../pages/home"));
     s("lazy", fmt("const {} = lazy(() => import(\"{}\"));{}",
                   {i(2, ""), i(1, ""), i(0, "")})),
+    --  s({trig = "<([%w_]+)", regTrig = true, hidden = true}, fmt([[
+    --   <{}{}
+    -- ]], {
+    --      c(1, {
+    --          f(function(_, exp) return exp.captures[1] .. " />" end),
+    --          f(function(_, exp)
+    --              local tag = exp.captures[1]
+    --              return tag .. "></" .. tag .. ">"
+    --          end)
+    --      }), i(0, "")
+    --  })),
+    --
     s({trig = "<([%w_]+)", regTrig = true, hidden = true}, fmt([[
-     <{}{}
-   ]], {
-        c(1, {
-            f(function(_, exp) return exp.captures[1] .. " />" end),
-            f(function(_, exp)
-                local tag = exp.captures[1]
-                return tag .. "></" .. tag .. ">"
-            end)
-        }), i(0, "")
-    })), s({trig = "([%w_]+).([%w_]+)", regTrig = true, hidden = true}, fmt([[
-     <{}{}
-   ]], {
-        c(1, {
-            f(function(_, exp)
-                local tag = exp.captures[1]
-                local class = exp.captures[2]
-                return tag .. " class=\"" .. class .. "\"></" .. tag .. ">"
-            end), f(function(_, exp)
-                local tag = exp.captures[1]
-                local class = exp.captures[2]
-                return tag .. " class=\"" .. class .. "\" />"
-            end)
-        }), i(0, "")
+      <{}>{}</{}>
+    ]], {
+        c(1, {f(function(_, exp) return exp.captures[1] end)}), i(0, ""), rep(1)
     })), s("h1", fmt("<h1>{}</h1>{}", {i(1, ""), i(0, "")})),
     s("h2", fmt("<h2>{}</h2>{}", {i(1, ""), i(0, "")})),
     s("h3", fmt("<h3>{}</h3>{}", {i(1, ""), i(0, "")})),
