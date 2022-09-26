@@ -47,6 +47,7 @@ vmap { '++', ':CommentToggle<CR>', { noremap = false, silent = true } }
 nmap { '++', ':CommentToggle<CR>', { noremap = false, silent = true } }
 
 -- Telescope
+nmap { '<M-BS>', '<cmd>lua require(\'telescope.builtin\').git_files()<cr>', silent }
 nmap { '<C-p>', '<cmd>lua require(\'telescope.builtin\').git_files()<cr>', silent }
 nmap { '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>', silent }
 nmap { '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', silent }
@@ -74,7 +75,7 @@ nmap { '<C-g>', '<cmd>lua require("neogit").open({ kind = "split_above" })<cr>',
 nmap { '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', silent}
 
 -- Format with prettier
-nmap { 'F', ':Neoformat<CR>', { noremap = true, silent = false } }
+nmap { '<leader>F', ':Neoformat<CR>', { noremap = true, silent = false } }
 
 -- Packer maps
 nmap { '<leader><leader>ps', ':PackerSync<CR>', silent }
