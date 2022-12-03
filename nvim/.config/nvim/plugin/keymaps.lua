@@ -84,6 +84,14 @@ nmap { '<leader><leader>pu', ':PackerUpdate<CR>', silent }
 
 nmap { '<leader><leader>s', '<cmd>source ~/.config/nvim/plugin/luasnip.lua<CR>', silent }
 
+-- Toggle term
+nmap {'+<M-h>', '<cmd>1ToggleTerm<CR>', { noremap = true } }
+nmap {'[<M-h>', '<cmd>1ToggleTerm<CR>', { noremap = true } }
+nmap {'{<M-h>', '<cmd>1ToggleTerm<CR>', { noremap = true } }
+nmap {'<leader>ts', '<cmd>ToggleTerm direction=float<CR>', { noremap = true } }
+nmap {'<leader>ts[', '<cmd>2ToggleTerm direction=float<CR>', { noremap = true } }
+
+
 vim.keymap.set({ "i", "s" }, "<C-k>", function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
