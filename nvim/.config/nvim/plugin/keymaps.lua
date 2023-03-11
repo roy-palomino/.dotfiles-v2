@@ -6,6 +6,8 @@ local ls = require("luasnip")
 
 local silent = { noremap = true, silent = true}
 
+nmap { '<leader>w', ':w<CR>:e %<CR>' }
+
 -- Navigation
 nmap { '<leader>e', ':NvimTreeToggle<CR>', silent }
 nmap { '<S-q>', ':bd<CR>', silent }
