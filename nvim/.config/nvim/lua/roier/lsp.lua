@@ -83,21 +83,21 @@ lspconfig.html.setup {
   }
 }
 
-require'nlua.lsp.nvim'.setup(require'lspconfig', {
-  on_init = custom_init,
-  capabilities = capabilities,
-  cmd = {
-    '/usr/bin/lua-language-server',
-    '-E',
-    '/usr/lib/lua-language-server/main.lua'
-  },
-  diagnosticls = {
-    globals = {'vim'}
-  },
-  telemetry = {
-    enable = false,
-  },
-  -- completion = {
-  --   "keywordSnippet": "Disable",
-  -- },
-})
+-- require'lua_ls'.setup(require'lspconfig', {
+--   on_init = custom_init,
+--   capabilities = capabilities,
+--   cmd = {
+--     '/usr/bin/lua-language-server',
+--     '-E',
+--     '/usr/lib/lua-language-server/main.lua'
+--   },
+--   diagnosticls = {
+--     globals = {'vim'}
+--   },
+--   telemetry = {
+--     enable = false,
+--   },
+--   -- completion = {
+--   --   "keywordSnippet": "Disable",
+--   -- },
+-- })
