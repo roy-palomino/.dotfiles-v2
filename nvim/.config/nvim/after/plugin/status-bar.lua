@@ -11,9 +11,14 @@ require'bufferline'.setup {
 
   clickable = true,
 
-  icons = true,
+  icons = {
+      filetype = {
+          enabled = true,
+          custom_colors = true
+      }
+  },
 
-  icon_custom_colors = true,
+  -- icon_custom_colors = true,
 
   maximum_padding = 1,
 

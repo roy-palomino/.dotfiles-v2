@@ -74,23 +74,25 @@ ls.add_snippets("dart", {
     ]], {i(1, "WidgetName"), rep(1), i(2, "Container"), i(0, "")}))
 })
 
-ls.add_snippets("typescriptreact", {
+local reactsnippets = {
     s("import",
       fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")})),
     s("lazy", fmt("const {} = lazy(() => import(\"{}\"));{}",
-                  {i(2, ""), i(1, ""), i(0, "")})),
-    --  s({trig = "<([%w_]+)", regTrig = true, hidden = true}, fmt([[
-    --   <{}{}
-    -- ]], {
-    --      c(1, {
-    --          f(function(_, exp) return exp.captures[1] .. " />" end),
-    --          f(function(_, exp)
-    --              local tag = exp.captures[1]
-    --              return tag .. "></" .. tag .. ">"
-    --          end)
-    --      }), i(0, "")
-    --  })),
-    --
+                  {i(2, ""), i(1, ""), i(0, "")})), s("comp", fmt([[
+      import {{ FC }} from "react";
+
+      interface Props {{
+      }};
+
+      const {}: FC<Props> = () => {{
+        return (
+          <div>{}</div>
+        );
+      }};
+
+      export default {};
+    ]], {i(1, "MyComponent"), i(0, ""), rep(1)})),
+
     s({trig = "<([%w_]+)", regTrig = true, hidden = true}, fmt([[
       <{}>{}</{}>
     ]], {
@@ -139,4 +141,8 @@ ls.add_snippets("typescriptreact", {
     s("script", fmt("<script src=\"{}\" type=\"{}\">{}</script>{}", {
         i(1, "/file.js"), i(2, "text/javascript"), i(3, ""), i(0, "")
     }))
-})
+
+}
+
+ls.add_snippets("typescriptreact", reactsnippets)
+ls.add_snippets("javascriptreact", reactsnippets)

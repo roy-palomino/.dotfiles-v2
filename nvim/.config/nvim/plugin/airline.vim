@@ -1,4 +1,11 @@
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 let g:airline_theme='minimalist'
 let g:deepspace_italics=1
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fzf#enabled = 0
+let g:airline#extensions#quickfix#enabled = 0
+let g:airline#extensions#netrw#enabled = 0
+let g:airline#extensions#searchcount#enabled = 0
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#po#enabled = 0
+let g:airline#extensions#term#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0

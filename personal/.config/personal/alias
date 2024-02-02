@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-alias asdf="setxkbmap us real-prog-dvorak"
+alias asdf="setxkbmap latam latin-real-prog-dvorak"
 alias aoeu="setxkbmap latam"
 
 alias vim="nvim"

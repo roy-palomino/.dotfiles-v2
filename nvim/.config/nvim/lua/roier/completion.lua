@@ -10,9 +10,9 @@ end
 lspkind.init()
 
 local source_mapping = {
-  luasnip = "[SNIP]",
-	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
+    luasnip = "[SNIP]",
+	buffer = "[Buffer]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
 	path = "[Path]",
@@ -54,9 +54,9 @@ cmp.setup ({
 
 
   sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
     { name = 'path' },
     { name = "buffer", keyword_length = 5 },
   }),

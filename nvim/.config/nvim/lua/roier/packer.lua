@@ -21,8 +21,13 @@ return require('packer').startup(function(use)
     use 'tjdevries/colorbuddy.nvim'
 
     use 'nvim-lua/plenary.nvim'
-
-    use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
+    -- use {
+    --     "NeogitOrg/neogit",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim",
+    --         "sindrets/diffview.nvim", "ibhagwan/fzf-lua"
+    --     }
+    -- }
 
     use({'catppuccin/nvim', as = 'catppuccin'})
 
@@ -34,10 +39,8 @@ return require('packer').startup(function(use)
     -- TREE NAVIGATION
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons' -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        requires = {'kyazdani42/nvim-web-devicons'},
+        tag = 'nightly'
     }
 
     use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
@@ -51,7 +54,7 @@ return require('packer').startup(function(use)
     use 'terrortylor/nvim-comment'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-    use 'lukas-reineke/indent-blankline.nvim'
+    -- use "lukas-reineke/indent-blankline.nvim"
 
     -- Dart & Flutter support
     -- use 'thosakwe/vim-flutter'
@@ -69,8 +72,43 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline-themes'
 
     -- Terminal toggler
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end}
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = '*',
+        config = function() require("toggleterm").setup() end
+    }
+
+    use {"folke/todo-comments.nvim", requires = {"nvim-lua/plenary.nvim"}}
+
+    -- Markdown stuff
+    -- install without yarn or npm
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = {"markdown"} end,
+        ft = {"markdown"}
+    })
+
+    use {
+        "vinnymeller/swagger-preview.nvim",
+        run = "npm install -g swagger-ui-watcher"
+    }
+
+    use 'nvim-treesitter/nvim-treesitter-context'
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim", "antoinemadec/FixCursorHold.nvim",
+            "haydenmeade/neotest-jest"
+        }
+    }
+    use "folke/neodev.nvim"
 
 end)
