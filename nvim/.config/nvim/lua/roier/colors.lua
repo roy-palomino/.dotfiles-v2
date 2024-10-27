@@ -8,3 +8,10 @@ require('colorbuddy').colorscheme('catppuccin')
 
 hl("LineNr", { fg = "#5BBBDA", bg = "NONE" })
 hl("CursorLineNr", { fg = "#E1CD6C", bg = "NONE" })
+
+require("catppuccin").setup({})
+local macchiato = require("catppuccin.palettes").get_palette "macchiato"
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
+

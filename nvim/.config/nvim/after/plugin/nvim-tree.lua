@@ -1,8 +1,7 @@
 require'nvim-tree'.setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  open_on_tab         = false,
+  disable_netrw       = false,
+  hijack_netrw        = false,
+  open_on_tab         = true,
   hijack_cursor       = true,
   sync_root_with_cwd  = false,
   hijack_directories  = {
@@ -29,7 +28,6 @@ require'nvim-tree'.setup {
   },
   view = {
     width = 50,
-    height = 30,
     hide_root_folder = false,
     side = 'right',
     mappings = {

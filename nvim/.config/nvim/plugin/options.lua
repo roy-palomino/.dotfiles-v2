@@ -42,6 +42,8 @@ o.backup = false
 o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
+o.runtimepath:append("/opt/homebrew/opt/fzf")
+
 o.list = true
 o.listchars:append("eol:↲")
 
@@ -52,15 +54,29 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "python" },
   callback = function()
     vim.schedule(function()
-      bo.shiftwidth = 8
-      bo.tabstop = 8
-      bo.softtabstop = 8
+      bo.shiftwidth = 4
+      bo.tabstop = 4
+      bo.softtabstop = 4
     end)
   end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact", "dart", "css", "vue" },
+  pattern = {
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "dart",
+    "css",
+    "vue",
+    "ylm",
+    "yaml",
+    "astro",
+    "svg",
+    "html",
+    "htmldjango"
+  },
   callback = function()
     vim.schedule(function()
       bo.shiftwidth = 2

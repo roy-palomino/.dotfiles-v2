@@ -1,6 +1,7 @@
 return require('packer').startup(function(use)
 
     -- LSP config
+    use 'wbthomason/packer.nvim'
     use 'onsails/lspkind.nvim'
 
     use {'williamboman/nvim-lsp-installer'}
@@ -28,6 +29,19 @@ return require('packer').startup(function(use)
     --         "sindrets/diffview.nvim", "ibhagwan/fzf-lua"
     --     }
     -- }
+    use { "ibhagwan/fzf-lua",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    }
+
+    use ({
+        "NeogitOrg/neogit",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
+            "ibhagwan/fzf-lua",
+        }
+    })
 
     use({'catppuccin/nvim', as = 'catppuccin'})
 
@@ -47,6 +61,7 @@ return require('packer').startup(function(use)
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-treesitter/playground'
+    use {"gaelph/logsitter.nvim", requires = {"nvim-treesitter/nvim-treesitter"}}
 
     use 'kyazdani42/nvim-web-devicons'
 
@@ -70,6 +85,7 @@ return require('packer').startup(function(use)
 
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
+    use 'jparise/vim-graphql'
 
     -- Terminal toggler
     use {
@@ -79,6 +95,11 @@ return require('packer').startup(function(use)
     }
 
     use {"folke/todo-comments.nvim", requires = {"nvim-lua/plenary.nvim"}}
+
+    -- Astro support
+    use "wuelnerdotexe/vim-astro"
+
+    use "posva/vim-vue"
 
     -- Markdown stuff
     -- install without yarn or npm
@@ -105,10 +126,24 @@ return require('packer').startup(function(use)
     use {
         "nvim-neotest/neotest",
         requires = {
-            "nvim-lua/plenary.nvim", "antoinemadec/FixCursorHold.nvim",
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
             "haydenmeade/neotest-jest"
         }
     }
     use "folke/neodev.nvim"
+
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+
+    --- Python stuff
+    --use('davidhalter/jedi-vim')
 
 end)

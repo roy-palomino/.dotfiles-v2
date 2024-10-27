@@ -42,6 +42,18 @@ ls.add_snippets("typescript", {
       fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")}))
 })
 
+ls.add_snippets("astro", {
+    s("import",
+      fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")}))
+})
+
+ls.add_snippets("javascript", {
+    s("import",
+      fmt("import {{ {} }} from \"{}\";{}", {i(2, ""), i(1, ""), i(0, "")})),
+    s("req",
+      fmt("const {} = require(\"{}\");{}", {i(2, "blah"), i(1, ""), i(0, "")}))
+})
+
 ls.add_snippets("dart", {
     s("import", fmt([[
       import 'package:{}';{}
@@ -146,3 +158,5 @@ local reactsnippets = {
 
 ls.add_snippets("typescriptreact", reactsnippets)
 ls.add_snippets("javascriptreact", reactsnippets)
+ls.add_snippets("astro", reactsnippets)
+ls.add_snippets("htmldjango", reactsnippets)

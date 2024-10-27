@@ -13,5 +13,10 @@ alias rustpractice="cd /home/mart/practice/rust"
 alias tmux.conf="nvim ~/.tmux.conf"
 alias books="ranger ~/pCloudDrive/Books"
 alias kill="tmux kill-server"
+alias ts="tmux-sessionizer"
 
 alias gs="git status"
+
+alias mng="python manage.py"
+
+alias ns="tmux-newsession"

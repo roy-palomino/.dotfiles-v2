@@ -15,6 +15,7 @@ nmap {'<Tab>', ':BufferNext<CR>', silent}
 nmap {'<S-Tab>', ':BufferPrevious<CR>', silent}
 nmap {'<leader>tmh', ':BufferMovePrevious<CR>', silent}
 nmap {'<leader>tml', ':BufferMoveNext<CR>', silent}
+nmap {'<leader>q', ':CloseOtherTabs<CR>', silent}
 
 -- Remaps
 nmap {'Y', 'y$', {noremap = true}}
@@ -160,3 +161,7 @@ vim.api.nvim_create_autocmd("FileType", {
         end)
     end
 })
+
+-- Copilot stuff
+nmap {'<leader>ce', '<cmd>Copilot enable<CR>', silent}
+nmap {'<leader>cd', '<cmd>Copilot disable<CR>', silent}
