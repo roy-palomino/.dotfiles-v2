@@ -1,0 +1,45 @@
+-- Bufferline configuration for displaying buffers as tabs
+-- https://github.com/akinsho/bufferline.nvim
+print 'Loading bufferline.lua'
+return {
+  'akinsho/bufferline.nvim',
+  version = '*',
+  dependencies = 'nvim-tree/nvim-web-devicons',
+  config = function()
+    require('bufferline').setup {
+      options = {
+        -- Enable/disable animations
+        animation = false,
+
+        -- Enable/disable auto-hiding the tab bar when there is a single buffer
+        auto_hide = true,
+
+        -- Enable/disable close button
+        closable = true,
+
+        clickable = true,
+
+        icons = {
+          filetype = {
+            enabled = true,
+            custom_colors = true,
+          },
+        },
+
+        -- icon_custom_colors = true,
+
+        maximum_padding = 1,
+
+        -- Sets the maximum buffer name length.
+        maximum_length = 30,
+
+        -- If set, the letters for each buffer in buffer-pick mode will be
+        -- assigned based on their name. Otherwise or in case all letters are
+        -- already assigned, the behavior is to assign letters in order of
+        -- usability (see order below)
+        semantic_letters = true,
+      },
+    }
+  end,
+}
+
