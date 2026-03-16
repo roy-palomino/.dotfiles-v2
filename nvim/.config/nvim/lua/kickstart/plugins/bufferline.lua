@@ -1,6 +1,5 @@
 -- Bufferline configuration for displaying buffers as tabs
 -- https://github.com/akinsho/bufferline.nvim
-print 'Loading bufferline.lua'
 return {
   'akinsho/bufferline.nvim',
   version = '*',

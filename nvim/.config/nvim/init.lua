@@ -126,6 +126,9 @@ vim.o.belloff = 'all'
 -- Hidden buffers
 vim.o.hidden = true
 
+-- Auto-reload files changed externally (e.g. by Claude Code)
+vim.o.autoread = true
+
 -- Highlight color column
 vim.cmd 'highlight ColorColumn guibg=DarkCyan'
 
@@ -190,6 +193,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- Auto-reload files modified externally (e.g. by Claude Code, git, etc.)
+local reload_augroup = vim.api.nvim_create_augroup('auto-reload-files', { clear = true })
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
+  group = reload_augroup,
+  callback = function()
+    if vim.fn.getcmdwintype() == '' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+vim.api.nvim_create_autocmd('FileChangedShellPost', {
+  group = reload_augroup,
+  callback = function()
+    vim.notify('File changed on disk. Buffer reloaded.', vim.log.levels.WARN)
   end,
 })
 
@@ -284,18 +304,7 @@ require('lazy').setup({
   -- options to `gitsigns.nvim`.
   --
   -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
+  -- NOTE: gitsigns is configured in lua/kickstart/plugins/gitsigns.lua
   {
     'jidn/vim-dbml',
     ft = 'dbml', -- Carga solo para archivos .dbml
@@ -588,26 +597,13 @@ require('lazy').setup({
           --  the definition of its *type*, not where it was *defined*.
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
-          -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-          ---@param client vim.lsp.Client
-          ---@param method vim.lsp.protocol.Method
-          ---@param bufnr? integer some lsp support methods only in specific files
-          ---@return boolean
-          local function client_supports_method(client, method, bufnr)
-            if vim.fn.has 'nvim-0.11' == 1 then
-              return client:supports_method(method, bufnr)
-            else
-              return client.supports_method(method, { bufnr = bufnr })
-            end
-          end
-
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -634,7 +630,7 @@ require('lazy').setup({
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
@@ -699,10 +695,6 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         tailwindcss = {
-          cmd = {
-            '/Users/roy_1/.local/share/nvim/mason/packages/tailwindcss-language-server/node_modules/@tailwindcss/language-server/bin/tailwindcss-language-server',
-            '--stdio',
-          },
           settings = {
             tailwindCSS = {
               classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
@@ -729,7 +721,6 @@ require('lazy').setup({
             },
           },
         },
-        ts_ls = {},
         vtsls = {},
         astro = {},
         lua_ls = {
@@ -764,6 +755,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettier', -- Used to format SCSS, Markdown, JavaScript, TypeScript, etc.
+        'eslint_d', -- Used to lint JavaScript, TypeScript, etc.
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -790,14 +783,14 @@ require('lazy').setup({
         filetypes = tsserver_filetypes,
       }
 
-      local ts_ls_config = {
-        init_options = {
-          plugins = {
-            vue_plugin,
-          },
-        },
-        filetypes = tsserver_filetypes,
-      }
+      -- local ts_ls_config = {
+      --   init_options = {
+      --     plugins = {
+      --       vue_plugin,
+      --     },
+      --   },
+      --   filetypes = tsserver_filetypes,
+      -- }
 
       local vue_ls_config = {
         on_init = function(client)
@@ -887,6 +880,15 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        json = { 'prettier' },
+        css = { 'prettier' },
+        html = { 'prettier' },
+        scss = { 'prettier' },
+        markdown = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -925,7 +927,10 @@ require('lazy').setup({
           --   end,
           -- },
         },
-        opts = {},
+        config = function()
+          -- Load custom React/TypeScript snippets
+          require 'custom.snippets'
+        end,
       },
       'folke/lazydev.nvim',
     },
@@ -1099,19 +1104,25 @@ require('lazy').setup({
       ensure_installed = {
         'bash',
         'c',
+        'css',
         'diff',
+        'go',
         'html',
+        'javascript',
+        'json',
         'lua',
         'luadoc',
         'markdown',
         'markdown_inline',
+        'prisma',
+        'python',
         'query',
+        'tsx',
+        'typescript',
         'vim',
         'vimdoc',
         'vue',
-        'typescript',
-        'javascript',
-        'css',
+        'yaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -1155,7 +1166,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
