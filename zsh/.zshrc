@@ -3,7 +3,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-export ZSH="/home/roier/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -80,13 +80,16 @@ source ~/.config/personal/alias
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export CHROME_EXECUTABLE=chromium
-
-export GOROOT=/usr/lib/go
+if [[ "$(uname)" == "Darwin" ]]; then
+  export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  export GOROOT="$(brew --prefix go 2>/dev/null)/libexec"
+else
+  export CHROME_EXECUTABLE=chromium
+  export GOROOT=/usr/lib/go
+fi
 export PATH=$PATH:$GOROOT/bin
-export GOPATH=/home/roier/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH
-# export GOBIN=$GOPATH/bin
 
 # protoc settings
 export PATH="$PATH:$HOME/.local/bin"
@@ -121,11 +124,15 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="$PATH:/home/roier/go/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-source /usr/share/nvm/init-nvm.sh
+if [[ "$(uname)" == "Darwin" ]]; then
+  [ -s "$(brew --prefix nvm 2>/dev/null)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+else
+  [ -s /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

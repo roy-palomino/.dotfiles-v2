@@ -1,22 +1,18 @@
 #!/usr/bin/env bash
-alias asdf="setxkbmap latam latin-real-prog-dvorak"
-alias aoeu="setxkbmap latam"
+
+# Keyboard layout (Linux only - macOS uses System Settings)
+if [[ "$(uname)" != "Darwin" ]]; then
+  alias asdf="setxkbmap latam latin-real-prog-dvorak"
+  alias aoeu="setxkbmap latam"
+fi
 
 alias vim="nvim"
 alias so="source ~/.zshrc"
 alias zsh="nvim ~/.zshrc"
-alias mart="cd /home/mart/"
-alias vuepractice="cd /home/mart/practice/vue"
-alias gopractice="cd /home/mart/practice/go"
 alias init.vim="cd ~/.config/nvim"
-alias rustpractice="cd /home/mart/practice/rust"
 alias tmux.conf="nvim ~/.tmux.conf"
-alias books="ranger ~/pCloudDrive/Books"
 alias kill="tmux kill-server"
-alias ts="tmux-sessionizer"
 
 alias gs="git status"
 
 alias mng="python manage.py"
-
-alias ns="tmux-newsession"
